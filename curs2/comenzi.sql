@@ -31,3 +31,4 @@ SELECT * FROM `student` ORDER BY nume ASC LIMIT 5;
 SELECT * FROM `student` ORDER BY nume ASC LIMIT 5 OFFSET 10;
 
 SELECT an, COUNT(id) as nr_student FROM `student` GROUP BY an HAVING nr_student >=9;
+ALTER TABLE `jsusers` ADD `cnp` INT NULL DEFAULT NULL AFTER `telefon`;
