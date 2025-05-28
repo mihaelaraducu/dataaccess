@@ -32,6 +32,7 @@
                             <th>Email</th>
                             <th>Telefon</th>
                             <th>CNP</th>
+                            <th>Poza</th>
                             <th>Data Adaugare</th>
                             <th>Actiuni</th>
                         </tr>
@@ -44,6 +45,7 @@
                             <th>Email</th>
                             <th>Telefon</th>
                             <th>CNP</th>
+                            <th>Poza</th>
                             <th>Data Adaugare</th>
                             <th>Actiuni</th>
                         </tr>
@@ -62,7 +64,7 @@
                 </div>
                 <div class="modal-body">
                     <form action="javascript:void(0)" id="userInserUpdateForm" name="userInserUpdateForm"
-                        class="form-horizontal needs-validation" method="POST" novalidate>
+                        class="form-horizontal needs-validation" method="POST" novalidate enctype="multipart/form-data">
                         <input type="hidden" name="id" id="id">
                         <div class="form-group">
                             <label for="lname" class="col-sm-2 control-label">Nume</label>
@@ -119,6 +121,17 @@
                             <div class="col-sm-12">
                                 <input type="text" class="form-control" id="phone" name="telefon"
                                     placeholder="Enter Telefon" value="" maxlength="10"required>
+                                    <div class="invalid-feedback">
+                                        Acest camp este obligatoriu!
+                                      </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="poza" class="col-sm-2 control-label">Poza</label>
+                            <div class="col-sm-12">
+                                <input type="file" class="form-control" id="poza" name="poza"
+                                    placeholder="Enter Photo" value="" maxlength="10"required>
+                                    <img id="myphoto" src="" alt="" class="img-thumbnail" style="display: none;">
                                     <div class="invalid-feedback">
                                         Acest camp este obligatoriu!
                                       </div>

@@ -55,6 +55,12 @@ $(document).ready(function ($) {
                 { "data": "telefon" },
                 { "data": "cnp" },
                 {
+                    "data": "poza",
+                    render: function (data) {
+                        return '<img src="../../backend/dist/uploads/' +data+ ' " style="max-width:150px" />';
+                    }
+                },
+                {
                     "data": "datanastere",
                     render: $.fn.dataTable.render.moment('YYYY-MM-DDTHH:mm:ss.SSSSZ','YYYY-MM-DD' )
     
@@ -103,9 +109,17 @@ $(document).ready(function ($) {
                 $('#age').val(datan);
                 $('#phone').val(res.data.telefon);
                 $('#cnp').val(res.data.cnp);
+                //$('#poza').val(res.data.poza);
+                if(res.data.poza){
+                    $('#myphoto').css('display', 'inline');
+                    $('#myphoto').attr('src', '../backend/dist/uploads/' + res.data.poza);
+                }
+                else {
+                    $('#myphoto').css('display', 'none');
 
-
+                }
             }
+
         });
     });
     //  END  Editeaza utilizator
@@ -146,11 +160,18 @@ $(document).ready(function ($) {
         }
         alert(method);
         alert(urlReq);
+
+        let form = $('#userInserUpdateForm');
+
+        let formData = new FormData(form[0]);
         $.ajax({
 
             type: method,
             url: urlReq,
-            data: $(this).serialize(), // get all form field value in 
+            //data: $(this).serialize(), // get all form field value in 
+            data: formData,
+            contentType: false,
+            processData: false,
             // data:{
             //     nume:nume,
             //     prenume:prenume,

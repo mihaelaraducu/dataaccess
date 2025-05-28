@@ -7,6 +7,7 @@ export interface BasicUser {
     datanastere:Date, //string
     email:string,
     cnp?: number,
+    poza?: string, // string path to the image
     telefon: string,
     dataadaugare?:Date,
     actiune?:string
